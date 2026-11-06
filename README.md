@@ -21,10 +21,17 @@ Low-level firmware implementation for high-performance multi-target Wi-Fi testin
 - ESP32 development board (4MB Flash).
 
 ### Build & Flash
-\`\`\`bash
-idf.py fullclean
-idf.py -p COM8 flash monitor
-\`\`\`
+
+    idf.py fullclean
+    idf.py -p COM8 flash monitor
+
+### Flash Only (Using esptool.py)
+
+    esptool.py -p COM8 -b 115200 --after hard_reset write_flash \
+        --flash_mode dio --flash_freq 40m --flash_size detect \
+        0x8000 build/partition_table/partition-table.bin \
+        0x1000 build/bootloader/bootloader.bin \
+        0x10000 build/belajarKomponenDOS.bin
 
 ## Theoretical Background
 For an in-depth analysis of the underlying RF physics, FreeRTOS scheduling, and memory management, read the [Theory Document](theory.md).
