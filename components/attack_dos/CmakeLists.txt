@@ -1,0 +1,3 @@
+idf_component_register(SRCS "attack_dos.c"
+                       INCLUDE_DIRS "include"
+                       REQUIRES wsl_bypasser wifi_controller log esp_wifi)
