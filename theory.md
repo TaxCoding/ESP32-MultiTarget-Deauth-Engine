@@ -8,7 +8,7 @@ The ESP32 can spoof MAC addresses and send forged frames directly to a target by
 ## Management Frames
 Wi-Fi devices constantly talk to each other using different types of 802.11 frames. We specifically exploit the Deauthentication frame (subtype 0x0C), which falls under Management Frames. Normally, a device sends this frame to its Access Point (AP) when it wants to disconnect. But since older Wi-Fi standards don't encrypt these frames, the ESP32 can easily pretend to be the AP. It broadcasts a fake deauth frame to a connected client, and the client instantly drops the connection, thinking the router kicked it off[cite: 6].
 
-![802.11 Frame Types](./img/image_78ac34.jpg)
+![802.11 Frame Types](./img/f.jpg)
 
 ## System Architecture and Core Isolation
 The ESP32 handles the heavy lifting of raw frame injection without crashing by isolating the attack task to Core 1. We use FreeRTOS to pin the application logic away from Core 0, leaving the default Wi-Fi driver and background processes alone. This ensures a stable, uninterrupted flow from the frame generation logic straight down to the physical RF layer[cite: 5].
