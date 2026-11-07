@@ -105,6 +105,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/wsl_bypasser/cmake_install.cmake")
   include("D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/wifi_controller/cmake_install.cmake")
   include("D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/attack_dos/cmake_install.cmake")
+  include("D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/button_ctrl/cmake_install.cmake")
   include("D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/main/cmake_install.cmake")
 
 endif()

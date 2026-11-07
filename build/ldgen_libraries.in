@@ -62,4 +62,5 @@ $<TARGET_FILE:__idf_wifi_provisioning>
 $<TARGET_FILE:__idf_wsl_bypasser>
 $<TARGET_FILE:__idf_wifi_controller>
 $<TARGET_FILE:__idf_attack_dos>
+$<TARGET_FILE:__idf_button_ctrl>
 $<TARGET_FILE:__idf_main>

@@ -62,4 +62,5 @@ D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/bu
 D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/wsl_bypasser/libwsl_bypasser.a
 D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/wifi_controller/libwifi_controller.a
 D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/attack_dos/libattack_dos.a
+D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/button_ctrl/libbutton_ctrl.a
 D:/esppentest/ESP32-MultiTarget-Deauth-Engine/ESP32-MultiTarget-Deauth-Engine/build/esp-idf/main/libmain.a
