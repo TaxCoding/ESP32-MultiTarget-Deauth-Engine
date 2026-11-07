@@ -95,28 +95,29 @@ void attack_dos_set_mode_limit(int limit) {
 }
 
 /**
- * @brief Initialize the Rogue AP interface and launch the hyper-attack task on Core 1.
+ * @brief Starts the multi-target round-robin attack engine in hidden AP mode on Core 1.
  */
 void attack_dos_start_multi(void) {
     if (attack_running) return;
+
+    esp_wifi_set_mode(WIFI_MODE_AP);
 
     if (target_count > 0) {
         wifi_config_t wifi_config = {
             .ap = {
                 .max_connection = 4,
                 .authmode = WIFI_AUTH_OPEN,
-                .channel = targets[0].primary
+                .channel = targets[0].primary,
+                .ssid_hidden = 1
             },
         };
         strncpy((char *)wifi_config.ap.ssid, "Hyper-Access-Point", sizeof(wifi_config.ap.ssid));
         wifi_config.ap.ssid_len = strlen("Hyper-Access-Point");
 
-        esp_wifi_set_mode(WIFI_MODE_AP);
         esp_wifi_set_config(WIFI_IF_AP, &wifi_config);
-        esp_wifi_start();
-
-        ESP_LOGI(TAG, "Rogue AP interface beaconing.");
     }
+
+    esp_wifi_start();
 
     attack_running = true;
 
@@ -130,7 +131,7 @@ void attack_dos_start_multi(void) {
         1
     );
 
-    ESP_LOGI(TAG, "Hyper-Attack Engine active and stabilized on Core 1!");
+    ESP_LOGI(TAG, "Hyper-Attack Engine active on Core 1 with Hidden AP Mode!");
 }
 
 /**
