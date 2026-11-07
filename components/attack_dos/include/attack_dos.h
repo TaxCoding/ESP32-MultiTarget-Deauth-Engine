@@ -52,4 +52,11 @@ void attack_dos_add_target(const wifi_ap_record_t *record);
  */
 void attack_dos_start_multi(void);
 
+/**
+ * @brief Set the maximum number of active targets based on the current system operational mode.
+ * 
+ * @param limit Maximum number of targets to attack (1 to MAX_TARGETS).
+ */
+void attack_dos_set_mode_limit(int limit);
+
 #endif // ATTACK_DOS_H
